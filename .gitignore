@@ -1,8 +1,8 @@
 # Data files (too large for GitHub)
-data/raw/*.csv
-data/raw/*.parquet
-*.csv
-*.parquet
+#data/raw/*.csv
+#data/raw/*.parquet
+#*.csv
+#*.parquet
 
 # Python
 __pycache__/
