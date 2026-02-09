@@ -1,0 +1,4 @@
+If we start a new chat later, you can say:
+"Search my past chats about taxi project ML learning"
+
+And I can retrieve context from THIS conversation!

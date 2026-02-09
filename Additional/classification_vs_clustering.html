@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classification vs Clustering</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: white;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+        }
+        
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .classification {
+            border: 4px solid #3498db;
+        }
+        
+        .clustering {
+            border: 4px solid #e74c3c;
+        }
+        
+        .section h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            color: white;
+        }
+        
+        .classification h2 {
+            background: #3498db;
+        }
+        
+        .clustering h2 {
+            background: #e74c3c;
+        }
+        
+        .label {
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        
+        .supervised-label {
+            background: #d5f4e6;
+            color: #27ae60;
+            border: 3px solid #27ae60;
+        }
+        
+        .unsupervised-label {
+            background: #fadbd8;
+            color: #c0392b;
+            border: 3px solid #c0392b;
+        }
+        
+        .canvas-container {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        canvas {
+            border: 1px solid #adb5bd;
+            border-radius: 5px;
+            background: white;
+        }
+        
+        .description {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        .description h3 {
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        .description p {
+            color: #856404;
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+        
+        .key-points {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .key-points h3 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .key-points ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .key-points li {
+            padding: 8px 0;
+            color: #1b5e20;
+            font-size: 1.05em;
+        }
+        
+        .key-points li:before {
+            content: "✓ ";
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 8px;
+        }
+        
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+        
+        .legend-color {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 3px solid #333;
+        }
+        
+        .summary {
+            background: linear-gradient(135deg, #a8e6cf 0%, #56cc9d 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 50px;
+            text-align: center;
+        }
+        
+        .summary h2 {
+            color: #1e3a2b;
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .summary-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: left;
+        }
+        
+        .summary-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .summary-card p {
+            color: #34495e;
+            font-size: 1.05em;
+            line-height: 1.7;
+        }
+        
+        @media (max-width: 968px) {
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Classification vs Clustering: Visual Comparison</h1>
+        
+        <div class="comparison">
+            <!-- CLASSIFICATION SECTION -->
+            <div class="section classification">
+                <h2>📋 CLASSIFICATION</h2>
+                
+                <div class="label supervised-label">
+                    SUPERVISED LEARNING 👨‍🏫
+                </div>
+                
+                <div class="canvas-container">
+                    <h3 style="color: #2c3e50; margin-bottom: 15px;">Training Phase: You Teach the Computer</h3>
+                    <canvas id="classificationTraining" width="500" height="400"></canvas>
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #e74c3c;"></div>
+                            <span>Apple (Label: Red)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #f39c12;"></div>
+                            <span>Orange (Label: Orange)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="canvas-container">
+                    <h3 style="color: #2c3e50; margin-bottom: 15px;">Prediction Phase: Computer Uses What It Learned</h3>
+                    <canvas id="classificationPrediction" width="500" height="400"></canvas>
+                    <div style="margin-top: 15px; font-size: 1.2em; color: #27ae60; font-weight: bold;">
+                        ✓ Computer predicts: "This new fruit is an APPLE!"
+                    </div>
+                </div>
+                
+                <div class="description">
+                    <h3>🎓 How It Works:</h3>
+                    <p><strong>Step 1:</strong> You show the computer labeled examples: "This is an apple, this is an orange"</p>
+                    <p><strong>Step 2:</strong> Computer learns the differences (size, color, texture)</p>
+                    <p><strong>Step 3:</strong> Show new fruit → Computer predicts which category</p>
+                </div>
+                
+                <div class="key-points">
+                    <h3>🔑 Key Characteristics:</h3>
+                    <ul>
+                        <li>You KNOW the groups beforehand (Apple, Orange)</li>
+                        <li>You PROVIDE labels during training</li>
+                        <li>Goal: PREDICT category for new items</li>
+                        <li>Groups are PREDEFINED by you</li>
+                        <li>Needs correct answers to learn from</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- CLUSTERING SECTION -->
+            <div class="section clustering">
+                <h2>🔍 CLUSTERING</h2>
+                
+                <div class="label unsupervised-label">
+                    UNSUPERVISED LEARNING 🔎
+                </div>
+                
+                <div class="canvas-container">
+                    <h3 style="color: #2c3e50; margin-bottom: 15px;">Before: Fruits with NO Labels</h3>
+                    <canvas id="clusteringBefore" width="500" height="400"></canvas>
+                    <div style="margin-top: 15px; font-size: 1.1em; color: #c0392b; font-weight: bold;">
+                        ❓ You don't tell the computer anything - no labels!
+                    </div>
+                </div>
+                
+                <div class="canvas-container">
+                    <h3 style="color: #2c3e50; margin-bottom: 15px;">After: Computer Discovers Natural Groups</h3>
+                    <canvas id="clusteringAfter" width="500" height="400"></canvas>
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #e74c3c;"></div>
+                            <span>Group 1 (Big & Red)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #f39c12;"></div>
+                            <span>Group 2 (Small & Orange)</span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 15px; font-size: 1.2em; color: #27ae60; font-weight: bold;">
+                        ✓ Computer discovers: "I found 2 natural groups!"
+                    </div>
+                </div>
+                
+                <div class="description">
+                    <h3>🔬 How It Works:</h3>
+                    <p><strong>Step 1:</strong> Give computer fruits with NO labels</p>
+                    <p><strong>Step 2:</strong> Computer analyzes similarities (size, color, weight)</p>
+                    <p><strong>Step 3:</strong> Computer groups similar fruits together</p>
+                </div>
+                
+                <div class="key-points">
+                    <h3>🔑 Key Characteristics:</h3>
+                    <ul>
+                        <li>You DON'T know what groups exist</li>
+                        <li>You DON'T provide any labels</li>
+                        <li>Goal: DISCOVER natural patterns</li>
+                        <li>Groups are FOUND by computer</li>
+                        <li>No correct answers needed</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SUMMARY SECTION -->
+        <div class="summary">
+            <h2>📊 The Key Difference in One Sentence</h2>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h3>📋 CLASSIFICATION</h3>
+                    <p><strong>"I'll teach you what apples and oranges are. Now tell me which category THIS fruit belongs to."</strong></p>
+                    <p style="margin-top: 15px; font-style: italic;">→ You define groups, computer learns to recognize them</p>
+                </div>
+                
+                <div class="summary-card">
+                    <h3>🔍 CLUSTERING</h3>
+                    <p><strong>"Here are some fruits. Figure out what groups exist on your own."</strong></p>
+                    <p style="margin-top: 15px; font-style: italic;">→ Computer discovers groups, you didn't define them</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // CLASSIFICATION - TRAINING
+        const ctxClassTrain = document.getElementById('classificationTraining').getContext('2d');
+        
+        // Draw apples (red circles with labels)
+        const apples = [
+            {x: 150, y: 100}, {x: 180, y: 150}, {x: 120, y: 180},
+            {x: 160, y: 220}, {x: 200, y: 120}
+        ];
+        
+        apples.forEach(apple => {
+            ctxClassTrain.beginPath();
+            ctxClassTrain.arc(apple.x, apple.y, 25, 0, Math.PI * 2);
+            ctxClassTrain.fillStyle = '#e74c3c';
+            ctxClassTrain.fill();
+            ctxClassTrain.strokeStyle = '#c0392b';
+            ctxClassTrain.lineWidth = 3;
+            ctxClassTrain.stroke();
+            
+            // Label
+            ctxClassTrain.fillStyle = '#2c3e50';
+            ctxClassTrain.font = 'bold 14px Arial';
+            ctxClassTrain.fillText('Apple', apple.x - 20, apple.y + 45);
+        });
+        
+        // Draw oranges (orange circles with labels)
+        const oranges = [
+            {x: 350, y: 120}, {x: 380, y: 170}, {x: 320, y: 200},
+            {x: 360, y: 240}, {x: 400, y: 140}
+        ];
+        
+        oranges.forEach(orange => {
+            ctxClassTrain.beginPath();
+            ctxClassTrain.arc(orange.x, orange.y, 20, 0, Math.PI * 2);
+            ctxClassTrain.fillStyle = '#f39c12';
+            ctxClassTrain.fill();
+            ctxClassTrain.strokeStyle = '#e67e22';
+            ctxClassTrain.lineWidth = 3;
+            ctxClassTrain.stroke();
+            
+            // Label
+            ctxClassTrain.fillStyle = '#2c3e50';
+            ctxClassTrain.font = 'bold 14px Arial';
+            ctxClassTrain.fillText('Orange', orange.x - 25, orange.y + 40);
+        });
+        
+        // Title
+        ctxClassTrain.fillStyle = '#2c3e50';
+        ctxClassTrain.font = 'bold 16px Arial';
+        ctxClassTrain.fillText('✓ Labeled Training Data', 150, 350);
+        
+        // CLASSIFICATION - PREDICTION
+        const ctxClassPred = document.getElementById('classificationPrediction').getContext('2d');
+        
+        // Draw the same groups (lighter)
+        apples.forEach(apple => {
+            ctxClassPred.beginPath();
+            ctxClassPred.arc(apple.x, apple.y, 25, 0, Math.PI * 2);
+            ctxClassPred.fillStyle = 'rgba(231, 76, 60, 0.3)';
+            ctxClassPred.fill();
+            ctxClassPred.strokeStyle = '#e74c3c';
+            ctxClassPred.lineWidth = 2;
+            ctxClassPred.stroke();
+        });
+        
+        oranges.forEach(orange => {
+            ctxClassPred.beginPath();
+            ctxClassPred.arc(orange.x, orange.y, 20, 0, Math.PI * 2);
+            ctxClassPred.fillStyle = 'rgba(243, 156, 18, 0.3)';
+            ctxClassPred.fill();
+            ctxClassPred.strokeStyle = '#f39c12';
+            ctxClassPred.lineWidth = 2;
+            ctxClassPred.stroke();
+        });
+        
+        // Draw NEW fruit (with question mark and arrow)
+        const newFruit = {x: 250, y: 320};
+        ctxClassPred.beginPath();
+        ctxClassPred.arc(newFruit.x, newFruit.y, 27, 0, Math.PI * 2);
+        ctxClassPred.fillStyle = '#95a5a6';
+        ctxClassPred.fill();
+        ctxClassPred.strokeStyle = '#2c3e50';
+        ctxClassPred.lineWidth = 4;
+        ctxClassPred.stroke();
+        
+        // Question mark
+        ctxClassPred.fillStyle = 'white';
+        ctxClassPred.font = 'bold 30px Arial';
+        ctxClassPred.fillText('?', newFruit.x - 10, newFruit.y + 10);
+        
+        // Arrow pointing to apple group
+        ctxClassPred.strokeStyle = '#27ae60';
+        ctxClassPred.lineWidth = 4;
+        ctxClassPred.beginPath();
+        ctxClassPred.moveTo(newFruit.x - 25, newFruit.y - 25);
+        ctxClassPred.lineTo(160, 180);
+        ctxClassPred.stroke();
+        
+        // Arrow head
+        ctxClassPred.beginPath();
+        ctxClassPred.moveTo(160, 180);
+        ctxClassPred.lineTo(155, 170);
+        ctxClassPred.lineTo(165, 175);
+        ctxClassPred.closePath();
+        ctxClassPred.fillStyle = '#27ae60';
+        ctxClassPred.fill();
+        
+        ctxClassPred.fillStyle = '#27ae60';
+        ctxClassPred.font = 'bold 16px Arial';
+        ctxClassPred.fillText('Predicted: Apple!', newFruit.x - 60, newFruit.y + 60);
+        
+        // CLUSTERING - BEFORE
+        const ctxClustBefore = document.getElementById('clusteringBefore').getContext('2d');
+        
+        // Draw mixed fruits with NO labels
+        const allFruits = [
+            // Big red ones
+            {x: 150, y: 100, size: 25, color: '#e74c3c'},
+            {x: 180, y: 150, size: 25, color: '#e74c3c'},
+            {x: 120, y: 180, size: 25, color: '#e74c3c'},
+            {x: 160, y: 220, size: 25, color: '#e74c3c'},
+            {x: 200, y: 120, size: 25, color: '#e74c3c'},
+            // Small orange ones
+            {x: 350, y: 120, size: 20, color: '#f39c12'},
+            {x: 380, y: 170, size: 20, color: '#f39c12'},
+            {x: 320, y: 200, size: 20, color: '#f39c12'},
+            {x: 360, y: 240, size: 20, color: '#f39c12'},
+            {x: 400, y: 140, size: 20, color: '#f39c12'}
+        ];
+        
+        allFruits.forEach(fruit => {
+            ctxClustBefore.beginPath();
+            ctxClustBefore.arc(fruit.x, fruit.y, fruit.size, 0, Math.PI * 2);
+            ctxClustBefore.fillStyle = '#95a5a6'; // All gray - no labels!
+            ctxClustBefore.fill();
+            ctxClustBefore.strokeStyle = '#7f8c8d';
+            ctxClustBefore.lineWidth = 3;
+            ctxClustBefore.stroke();
+            
+            // Question mark on each
+            ctxClustBefore.fillStyle = 'white';
+            ctxClustBefore.font = 'bold 18px Arial';
+            ctxClustBefore.fillText('?', fruit.x - 6, fruit.y + 6);
+        });
+        
+        ctxClustBefore.fillStyle = '#c0392b';
+        ctxClustBefore.font = 'bold 16px Arial';
+        ctxClustBefore.fillText('❌ No Labels - Computer knows nothing!', 110, 350);
+        
+        // CLUSTERING - AFTER
+        const ctxClustAfter = document.getElementById('clusteringAfter').getContext('2d');
+        
+        // Draw grouped fruits with discovered colors
+        allFruits.forEach((fruit, index) => {
+            ctxClustAfter.beginPath();
+            ctxClustAfter.arc(fruit.x, fruit.y, fruit.size, 0, Math.PI * 2);
+            ctxClustAfter.fillStyle = fruit.color;
+            ctxClustAfter.fill();
+            ctxClustAfter.strokeStyle = index < 5 ? '#c0392b' : '#e67e22';
+            ctxClustAfter.lineWidth = 3;
+            ctxClustAfter.stroke();
+        });
+        
+        // Draw circles around clusters
+        ctxClustAfter.strokeStyle = 'rgba(231, 76, 60, 0.5)';
+        ctxClustAfter.lineWidth = 3;
+        ctxClustAfter.setLineDash([10, 5]);
+        ctxClustAfter.beginPath();
+        ctxClustAfter.arc(160, 160, 90, 0, Math.PI * 2);
+        ctxClustAfter.stroke();
+        
+        ctxClustAfter.strokeStyle = 'rgba(243, 156, 18, 0.5)';
+        ctxClustAfter.beginPath();
+        ctxClustAfter.arc(360, 170, 70, 0, Math.PI * 2);
+        ctxClustAfter.stroke();
+        ctxClustAfter.setLineDash([]);
+        
+        // Labels
+        ctxClustAfter.fillStyle = '#c0392b';
+        ctxClustAfter.font = 'bold 14px Arial';
+        ctxClustAfter.fillText('Cluster 1', 130, 80);
+        ctxClustAfter.fillText('(Big & Red)', 125, 95);
+        
+        ctxClustAfter.fillStyle = '#e67e22';
+        ctxClustAfter.fillText('Cluster 2', 330, 100);
+        ctxClustAfter.fillText('(Small & Orange)', 305, 115);
+        
+        ctxClustAfter.fillStyle = '#27ae60';
+        ctxClustAfter.font = 'bold 16px Arial';
+        ctxClustAfter.fillText('✓ Computer discovered 2 natural groups!', 100, 350);
+    </script>
+</body>
+</html>
