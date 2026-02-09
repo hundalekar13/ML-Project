@@ -1,0 +1,1 @@
+This folder contains description of data sources, original downloaded data and cleaned data ready for modeling.

@@ -1,5 +1,3 @@
-# ML-Project
-
 # NYC Taxi Trip Duration and Congestion Pricing Prediction
 
 ## 📊 Project Overview
@@ -25,9 +23,9 @@ Machine Learning project predicting taxi trip durations and congestion pricing e
 ```
 
 ## 📈 Key Results
-*(You'll fill this after completing the project)*
-- Trip Duration Model: RMSE = X minutes
-- Congestion Fee Model: Accuracy = X%
+*(To be updated after completing the project)*
+- Trip Duration Model: RMSE = TBD
+- Congestion Fee Model: Accuracy = TBD
 
 ## 🚀 How to Run
 1. Clone the repository
@@ -39,49 +37,9 @@ Machine Learning project predicting taxi trip durations and congestion pricing e
 
 ## 👤 Author
 Abhishek Mohan Hundalekar
+- Email: abhishekhundalekar13@gmail.com
 - LinkedIn: [linkedin.com/in/abhishekhundalekar](https://linkedin.com/in/abhishekhundalekar)
 - GitHub: [@hundalekar](https://github.com/hundalekar)
 
 ## 📝 License
 MIT License
-```
-
----
-
-## **D) Create requirements.txt File**
-
-This file lists all Python packages needed:
-```
-pandas==2.0.0
-numpy==1.24.0
-scikit-learn==1.3.0
-matplotlib==3.7.0
-seaborn==0.12.0
-jupyter==1.0.0
-```
-
-**Why?** Anyone can run `pip install -r requirements.txt` and get everything they need!
-
----
-
-## **E) Create .gitignore File**
-
-This tells Git what NOT to upload:
-```
-# Data files (too large for GitHub)
-data/raw/*.csv
-data/raw/*.parquet
-*.csv
-
-# Python
-__pycache__/
-*.py[cod]
-.ipynb_checkpoints/
-
-# Environment
-venv/
-.env
-
-# OS files
-.DS_Store
-Thumbs.db

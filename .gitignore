@@ -1,0 +1,33 @@
+# Data files (too large for GitHub)
+data/raw/*.csv
+data/raw/*.parquet
+*.csv
+*.parquet
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environment variables
+.env
