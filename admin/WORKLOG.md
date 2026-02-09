@@ -20,30 +20,6 @@ This log documents significant work completed on the NYC Taxi Trip Duration and 
 
 **Impact**: Clear pipeline structure established. Team can work on different phases simultaneously without conflicts.
 
-**Next Steps**: Each team member should populate their individual EDA notebooks with analysis.
-
----
-
-## 2025-02-08 - Individual EDA Notebooks Created (Team)
-
-**Context**: Team completed individual exploratory data analysis and needs to commit work to repository.
-
-**Solution Implemented**:
-- **Abhishek**: Created `Abhishek_EDA.ipynb` with temporal pattern analysis
-- **Morgan**: Created `Morgan_EDA.ipynb` with spatial and congestion pricing analysis
-- **Moses**: Created `Moses_EDA.ipynb` with passenger count and payment type analysis
-- **Tarun**: Created `Tarun_EDA.ipynb` and set up EDA folder structure
-
-**Files Modified**:
-- `notebooks/01_data_exploration/Abhishek_EDA.ipynb` (created)
-- `notebooks/01_data_exploration/Morgan_EDA.ipynb` (created)
-- `notebooks/01_data_exploration/Moses_EDA.ipynb` (created)
-- `notebooks/01_data_exploration/Tarun_EDA.ipynb` (created via earlier commit)
-
-**Impact**: All four team members have completed initial exploratory data analysis. Ready to synthesize findings.
-
-**Next Steps**: Combine insights into unified EDA notebook and develop data cleaning strategy.
-
 ---
 
 ## 2025-02-08 - Source Code and Results Directories (Abhishek)
@@ -76,8 +52,6 @@ This log documents significant work completed on the NYC Taxi Trip Duration and 
 
 **Impact**: Project vision and work plan clearly documented. Team aligned on objectives and timeline.
 
-**Next Steps**: Maintain WORKPLAN.md and WORKLOG.md regularly throughout project lifecycle.
-
 ---
 
 ## 2025-02-08 - Data Infrastructure Setup (Abhishek, Moses)
@@ -93,8 +67,6 @@ This log documents significant work completed on the NYC Taxi Trip Duration and 
 - **Abhishek**: Set up folder for cleaned data outputs
 
 **Impact**: NYC Yellow Taxi data (January 2025, 2.3M+ trips) successfully loaded and accessible to all team members. Data size within GitHub 100MB limit.
-
-**Next Steps**: Begin exploratory data analysis on raw data.
 
 ---
 
@@ -115,5 +87,3 @@ This log documents significant work completed on the NYC Taxi Trip Duration and 
 - Updated proposal with refinements based on team feedback
 
 **Impact**: Project scope, objectives, and approach clearly defined. Proposal approved by instructor. Clear roadmap for execution including baseline models (linear/logistic regression) and advanced models (random forests, gradient boosting).
-
-**Next Steps**: Acquire data and begin exploratory analysis.
