@@ -1,1 +1,184 @@
+# Work Log
 
+This log documents significant work completed on the NYC Taxi Trip Duration and Congestion Pricing Prediction project.
+
+---
+
+## 2025-02-08 - Notebook Structure Organization (Abhishek)
+
+**Context**: Need to organize exploratory data analysis work and set up pipeline for future modeling phases.
+
+**Solution Implemented**:
+- Created structured notebook folders for all project phases:
+  - `notebooks/01_data_exploration/` - Contains individual team member EDAs
+  - `notebooks/02_data_cleaning/` - For data cleaning pipeline
+  - `notebooks/03_feature_engineering/` - For feature creation
+  - `notebooks/04_baseline_models/` - For linear/logistic regression
+  - `notebooks/05_advanced_models/` - For random forests and gradient boosting
+- Created placeholder notebooks in each folder
+- Set up combined EDA notebook (`01_data_exploration.ipynb`)
+
+**Commits**: 
+- `04a825f` - Create 01_data_exploration.ipynb
+- `86b364a` - Create 05_advanced_models
+- `951f258` - Create 04_baseline_models
+- `f0b0e97` - Create 03_feature_engineering
+- `e32b346` - Create 02_data_cleaning
+
+**Impact**: Clear pipeline structure established. Team can work on different phases simultaneously without conflicts.
+
+**Next Steps**: Each team member should populate their individual EDA notebooks with analysis.
+
+---
+
+## 2025-02-08 - Individual EDA Notebooks Created (Team)
+
+**Context**: Team completed individual exploratory data analysis and needs to commit work to repository.
+
+**Solution Implemented**:
+- **Abhishek**: Created `Abhishek_EDA.ipynb` with temporal pattern analysis
+- **Morgan**: Created `Morgan_EDA.ipynb` with spatial and congestion pricing analysis
+- **Moses**: Created `Moses_EDA.ipynb` with passenger count and payment type analysis
+- **Tarun**: Created `Tarun_EDA.ipynb` and set up EDA folder structure
+
+**Files Modified**:
+- `notebooks/01_data_exploration/Abhishek_EDA.ipynb` (created)
+- `notebooks/01_data_exploration/Morgan_EDA.ipynb` (created)
+- `notebooks/01_data_exploration/Moses_EDA.ipynb` (created)
+- `notebooks/01_data_exploration/Tarun_EDA.ipynb` (created via earlier commit)
+
+**Commits**:
+- `2ffc2ff` - Create Abhishek_EDA.ipynb (Abhishek)
+- `79da987` - Create Morgan_EDA.ipynb (Abhishek)
+- `d920817` - Create Moses_EDA.ipynb (Abhishek)
+- `78835a8` - Changed the EDA destination (Tarun)
+- `baea6fc` - Added my own file and created the folder (Tarun)
+
+**Impact**: All four team members have completed initial exploratory data analysis. Ready to synthesize findings.
+
+**Next Steps**: Combine insights into unified EDA notebook and develop data cleaning strategy.
+
+---
+
+## 2025-02-08 - Source Code and Results Directories (Abhishek)
+
+**Context**: Need to organize Python modules and model outputs separately from notebooks for better code reusability.
+
+**Solution Implemented**:
+- Created `src/` folder for Python source code modules:
+  - `data_processing.py` - Data loading and preprocessing functions
+  - `feature_engineering.py` - Feature creation functions
+  - `models.py` - Model training and prediction functions
+  - `evaluation.py` - Evaluation metrics and visualization
+  - `__init__.py` - Package initialization
+- Created `results/` folder for model outputs:
+  - `figures/` - Visualization outputs
+  - `model_performance/` - Performance metrics and comparisons
+
+**Commits**:
+- `10ca135` - Create src
+- `63779d2` - Create results
+
+**Impact**: Modular code structure established. Functions can be imported across notebooks, reducing code duplication.
+
+---
+
+## 2025-02-08 - Project Management Documentation (Moses, Abhishek)
+
+**Context**: Course requires VISION.md and WORKPLAN.md in admin folder for project tracking.
+
+**Solution Implemented**:
+- **Moses**: Created and committed `WORKPLAN.md` with project milestones and task breakdown
+- **Abhishek**: Created `VISION.md` documenting project objectives, stakeholders, problem statement, and expected outcomes
+- **Abhishek**: Added GitHub repository structure diagram to `GitHub Structure/` folder for documentation
+
+**Commits**:
+- `c199cf9` - Addition of WORKPLAN.md (Moses)
+- `41cd711` - Fix formatting for Key Outcomes section in VISION.md (Abhishek)
+- `48e4bd3` - Update and rename Vision.md to VISION.md (Abhishek)
+- `8e3d7f9` - Created Vision.md (Abhishek)
+- `f0a8ad5` - Added GitHub Structure (Abhishek)
+
+**Impact**: Project vision and work plan clearly documented. Team aligned on objectives and timeline.
+
+**Next Steps**: Maintain WORKPLAN.md and WORKLOG.md regularly throughout project lifecycle.
+
+---
+
+## 2025-02-08 - Data Infrastructure Setup (Abhishek, Moses)
+
+**Context**: Project requires organized data storage with separation between raw and processed data.
+
+**Solution Implemented**:
+- **Abhishek**: Created data folder structure:
+  - `data/raw/` - For original NYC Taxi parquet file
+  - `data/processed/` - For cleaned and transformed datasets
+  - Added README.md files documenting data sources and structure
+- **Moses**: Uploaded `yellow_tripdata_2025-01.parquet` (87.3 MB) to `data/raw/`
+- **Abhishek**: Set up folder for cleaned data outputs
+
+**Commits**:
+- `fbf063c` - added data folder (Abhishek)
+- `73459aa` - Contains original data (Abhishek)
+- `3679516` - Addition of parquet data file (Moses)
+- `e5fc84a` - Contains cleaned data (Abhishek)
+- `91bdc55` - Created notebooks folder (Abhishek)
+- `02b966b` - Contains EDA and Visualisations (Abhishek)
+
+**Impact**: NYC Yellow Taxi data (January 2025, 2.3M+ trips) successfully loaded and accessible to all team members. Data size within GitHub 100MB limit.
+
+**Next Steps**: Begin exploratory data analysis on raw data.
+
+---
+
+## 2025-01-31 - Project Proposal Development (Moses)
+
+**Context**: Course checkpoint requires comprehensive project proposal including problem statement, literature review, methodology, stakeholders, and timeline.
+
+**Solution Implemented**:
+- Created detailed `proposal.md` with:
+  - Team member information and point of contact
+  - Introduction to NYC Taxi trip duration and congestion pricing prediction
+  - Literature review on ML for transportation analysis
+  - Stakeholder analysis (city agencies, drivers, riders, researchers)
+  - Data description (NYC TLC Yellow Taxi data)
+  - Methodology (baseline and ML models)
+  - Project timeline (Feb-May 2025)
+  - Risk assessment
+- Updated proposal with refinements based on team feedback
+
+**Commits**:
+- `97948fa` - Add proposal.md (Moses)
+- `f3792d7` - Update proposal.md (Moses)
+
+**Impact**: Project scope, objectives, and approach clearly defined. Proposal approved by instructor. Clear roadmap for execution including baseline models (linear/logistic regression) and advanced models (random forests, gradient boosting).
+
+**Next Steps**: Acquire data and begin exploratory analysis.
+
+---
+
+## 2025-01-26 - Repository Initialization (GitHub Classroom)
+
+**Context**: Course setup through GitHub Classroom for team collaboration and version control.
+
+**Solution Implemented**:
+- GitHub Classroom created initial repository from course template
+- Repository forked from `SU-IST707-SP26/su-ist707-sp26-group-project-group-project`
+- Initial folder structure created:
+  - `admin/` (with sample files)
+  - `checkpoint/`
+  - `data/`
+  - `final/`
+  - `notebooks/`
+  - `presentation/`
+  - `proposal/`
+- `.gitignore` and `README.md` initialized
+
+**Commits**:
+- `008504d` - Initial commit (github-classroom[bot])
+
+**Impact**: Team collaboration infrastructure established. All members have access to shared repository.
+
+**Next Steps**: Team begins project planning and proposal development.
+
+---
