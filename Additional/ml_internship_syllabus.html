@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Internship-Ready Syllabus</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: white;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            color: white;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            opacity: 0.85;
+            font-style: italic;
+        }
+        
+        .goal-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(240, 147, 251, 0.3);
+        }
+        
+        .goal-box h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+        
+        .goal-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .goal-item {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .goal-item h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            padding: 25px 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            color: white;
+            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
+        }
+        
+        .section-header h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .section-header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 25px;
+        }
+        
+        .module {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-left: 6px solid;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .module:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .module.core { border-left-color: #ff6b6b; }
+        .module.math { border-left-color: #4ecdc4; }
+        .module.algo { border-left-color: #45b7d1; }
+        .module.practical { border-left-color: #f7b731; }
+        .module.advanced { border-left-color: #5f27cd; }
+        .module.tools { border-left-color: #00d2d3; }
+        .module.soft { border-left-color: #ff9ff3; }
+        .module.deploy { border-left-color: #54a0ff; }
+        
+        .module-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .module-icon {
+            font-size: 2.5em;
+            margin-right: 15px;
+        }
+        
+        .module-title h3 {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        
+        .module-subtitle {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        
+        .topics {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .topics li {
+            padding: 12px 0;
+            border-bottom: 1px solid #ecf0f1;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .topics li:last-child {
+            border-bottom: none;
+        }
+        
+        .topics li:before {
+            content: "✓";
+            color: #27ae60;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 1.2em;
+        }
+        
+        .interview-prep {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(253, 203, 110, 0.3);
+        }
+        
+        .interview-prep h2 {
+            color: #2d3436;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .interview-topics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .interview-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .interview-card h3 {
+            color: #d63031;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .interview-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .interview-card li {
+            padding: 8px 0;
+            color: #2d3436;
+        }
+        
+        .interview-card li:before {
+            content: "→ ";
+            color: #d63031;
+            font-weight: bold;
+        }
+        
+        .project-showcase {
+            background: linear-gradient(135deg, #a8e6cf 0%, #56cc9d 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(86, 204, 157, 0.3);
+        }
+        
+        .project-showcase h2 {
+            color: #1e3a2b;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .project-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        
+        .project-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .project-card h3 {
+            color: #27ae60;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .project-card .project-desc {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .project-card .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .skill-tag {
+            background: #e8f5e9;
+            color: #27ae60;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+        
+        .timeline-section {
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(142, 197, 252, 0.3);
+        }
+        
+        .timeline-section h2 {
+            color: #2d3436;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .timeline-item {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-item .week {
+            font-size: 2em;
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-item h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-item p {
+            color: #7f8c8d;
+            font-size: 0.95em;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            color: white;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+        
+        .footer h2 {
+            margin-bottom: 20px;
+            font-size: 2.2em;
+        }
+        
+        .footer p {
+            font-size: 1.1em;
+            margin: 10px 0;
+            line-height: 1.8;
+        }
+        
+        .checklist {
+            background: rgba(255,255,255,0.2);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .checklist h3 {
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        
+        .checklist ul {
+            list-style: none;
+            text-align: left;
+            display: inline-block;
+        }
+        
+        .checklist li {
+            padding: 8px 0;
+            font-size: 1.05em;
+        }
+        
+        .checklist li:before {
+            content: "☑ ";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .modules-grid,
+            .interview-topics,
+            .project-items,
+            .timeline {
+                grid-template-columns: 1fr;
+            }
+            
+            .goal-items {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 ML Internship-Ready Syllabus</h1>
+            <p>From Complete Beginner to Interview-Ready in 6-8 Weeks</p>
+            <p class="subtitle">NYC Taxi Project + Industry Skills</p>
+        </header>
+        
+        <div class="goal-box">
+            <h2>🎯 Your Target: Summer 2026 ML Internship</h2>
+            <p>By the end of this syllabus, you will be prepared for:</p>
+            <div class="goal-items">
+                <div class="goal-item">
+                    <h3>💼 Technical Interviews</h3>
+                    <p>ML concepts, algorithms, and coding challenges</p>
+                </div>
+                <div class="goal-item">
+                    <h3>📊 Data Science Roles</h3>
+                    <p>Data analysis, modeling, and visualization</p>
+                </div>
+                <div class="goal-item">
+                    <h3>🤖 ML Engineer Positions</h3>
+                    <p>Model building, deployment, and MLOps basics</p>
+                </div>
+                <div class="goal-item">
+                    <h3>🎓 Portfolio Projects</h3>
+                    <p>GitHub-ready, resume-worthy work</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PART 1: FUNDAMENTALS -->
+        <div class="section">
+            <div class="section-header">
+                <h2>📚 PART 1: Core ML Fundamentals</h2>
+                <p>Building your foundation - the essentials every ML practitioner must know</p>
+            </div>
+            
+            <div class="modules-grid">
+                <div class="module core">
+                    <div class="module-header">
+                        <div class="module-icon">🧠</div>
+                        <div class="module-title">
+                            <h3>Module 1: ML Foundations</h3>
+                            <div class="module-subtitle">What is Machine Learning?</div>
+                        </div>
+                    </div>
+                    <ul class="topics">
+                        <li><strong>What is ML?</strong> Understanding learning from data vs. traditional programming</li>
+                        <li><strong>Types of ML:</strong> Supervised, Unsupervised, Reinforcement Learning</li>
+                        <li><strong>ML Workflow:</strong> Problem → Data → Model → Evaluation → Deployment</li>
+                        <li><strong>Key Terminology:</strong> Features, labels, training, testing, prediction</li>
+                        <li><strong>When to use ML:</strong> Problem identification and feasibility</li>
+                        <li><strong>Real-world examples:</strong> Recommendation systems, fraud detection, image recognition</li>
+                    </ul>
+                </div>
+                
+                <div class="module core">
+                    <div class="module-header">
+                        <div class="module-icon">🎯</div>
+                        <div class="module-title">
+                            <h3>Module 2: Problem Types</h3>
+                            <div class="module-subtitle">Regression vs Classification</div>
+                        </div>
+                    </div>
+                    <ul class="topics">
+                        <li><strong>Regression:</strong> Predicting continuous values (trip duration, prices, temperatures)</li>
+                        <li><strong>Classification:</strong> Predicting categories (spam/not spam, yes/no)</li>
+                        <li><strong>Binary vs Multi-class:</strong> Two categories vs many categories</li>
+                        <li><strong>Problem formulation:</strong> Turning business questions into ML problems</li>
+                        <li><strong>Choosing the right approach:</strong> Decision framework</li>
+                        <li><strong>Your taxi project:</strong> Duration (regression) + Congestion fee (classification)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PART 2: DATA SKILLS -->
+        <div class="section">
+            <div class="section-header">
+                <h2>📊 PART 2: Data Skills - The Foundation of ML</h2>
+                <p>80% of ML work is data work - master this to stand out</p>
+            </div>
+            
+            <div class="modules-grid">
+                <div class="module practical">
+                    <div class="module-header">
+                        <div class="module-icon">🔍</div>
+                        <div class="module-title">
+                            <h3>Module 3: Exploratory Data Analysis</h3>
+                            <div class="module-subtitle">Understanding your data deeply</div>
+                        </div>
+                    </div>
+                    <ul class="topics">
+                        <li><strong>Loading data:</strong> CSV, Parquet, databases - using Pandas effectively</li>
+                        <li><strong>Data inspection:</strong> Shape, types, missing values, duplicates</li>
+                        <li><strong>Statistical summaries:</strong> Mean, median, std dev, quartiles</li>
+                        <li><strong>Distributions:</strong> Histograms, box plots, understanding data spread</li>
+                        <li><strong>Relationships:</strong> Correlation, scatter plots, patterns</li>
+                        <li><strong>Outlier detection:</strong> Identifying and handling unusual values</li>
+                        <li><strong>Time series analysis:</strong> Temporal patterns in taxi data</li>
+                    </ul>
+                </div>
+                
+                <div class="module practical">
+                    <div class="module-header">
+                        <div class="module-icon">🧹</div>
+                        <div class="module-title">
+                            <h3>Module 4: Data Cleaning</h3>
+                            <div class="module-subtitle">Garbage in = Garbage out</div>
+                        </div>
+                    </div>
+                    <ul class="topics">
+                        <li><strong>Missing values:</strong> Detection, deletion, imputation strategies</li>
+                        <li><strong>Outliers:</strong> Statistical methods, domain knowledge, handling approaches</li>
+                        <li><strong>Duplicates:</strong> Finding and removing redundant records</li>
+                        <li><strong>Data type issues:</strong> Converting types, parsing dates/times</li>
+                        <li><strong>Invalid values:</strong> Negative durations, impossible locations</li>
+                        <li><strong>Data validation:</strong> Business rules, sanity checks</li>
+                        <li><strong>Documentation:</strong> Tracking cleaning decisions</li>
+                    </ul>
+                </div>
+                
+                <div class="module practical">
+                    <div class="module-header">
+                        <div class="module-icon">⚙️</div>
+                        <div class="module-title">
+                            <h3>Module 5: Feature Engineering</h3>
+                            <div class="module-subtitle">Creating powerful predictors</div>
+                        </div>
+                    </div>
+                    <ul class="topics">
+                        <li><strong>Temporal features:</strong> Hour, day of week, is_weekend, rush_hour</li>
+                        <li><strong>Derived features:</strong> Speed, distance categories, trip type</li>
+                        <li><strong>Aggregations:</strong> Location statistics, historical averages</li>
+                        <li><strong>Encoding categoricals:</strong> One-hot, label encoding, target encoding</li>
+                        <li><strong>Scaling/normalization:</strong> StandardScaler, MinMaxScaler - when and why</li>
+                        <li><strong>Feature selection:</strong> Removing redundant or harmful features</li>
+                        <li><strong>Domain knowledge:</strong> Using real-world understanding</li>
+                    </ul>
+                </div>
+                
+                <div class="module practical">
+                    <div class="module-header">
+                        <div class="module-icon">📈</div>
+                        <div class="module-title">
+                            <h3>Module 6: Data Visualization</h3>
+                            <div class="module-subtitle">Communicating insights visually</div>
+                        </div>
+                    </div>
+                    <ul class="topics">
+                        <li><strong>Matplotlib basics:</strong> Creating publication-quality plots</li>
+                        <li><strong>Seaborn:</strong> Statistical visualizations made easy</li>
+                        <li><strong>Chart types:</strong> Histograms, scatter, line, bar, box plots</li>
+                        <li><strong>Heatmaps:</strong> Correlation matrices, patterns</li>
+                        <li><strong>Geographic plots:</strong> Visualizing NYC taxi zones</li>
+                        <li><strong>Dashboard thinking:</strong> Telling stories with data</li>
+                        <li><strong>Professional presentation:</strong> Colors, labels, legends</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PART 3: ML ALGORITHMS -->
+        <div class="section">
+            <div class="section-header">
+                <h2>🤖 PART 3: Machine Learning Algorithms</h2>
+                <p>From simple baselines to advanced ensemble methods</p>
+            </div>
+            
+            <div class="modules-grid">
+                <div class="module algo">
+                    <div class="module-header">
+                        <div class="module-icon">📏</div>
+                        <div class="module-title">
+                            <h3>Module 7: Linear Models</h3>
+                            <div class="module-subtitle">Simple yet powerful baselines</div>
+                        </div>
+                    </div>
+                    <ul class="topics">
+                        <li><strong>Linear Regression:</strong> The math behind the line, coefficients, interpretation</li>
+                        <li><strong>Assumptions:</strong> Linearity, independence, homoscedasticity</li>
+                        <li><strong>Logistic Regression:</strong> Classification using probabilities</li>
+                        <li><strong>Sigmoid function:</strong> Converting scores to probabilities</li>
+                        <li><strong>Regularization:</strong> Ridge (L2) and Lasso (L1) - preventing overfitting</li>
+                        <li><strong>Implementation:</strong> scikit-learn, fitting, predicting</li>
+                        <li><strong>When they work best:</strong> Linear relationships, interpretability</li>
+                    </ul>
+                </div>
+                
+                <div class="module algo">
+                    <div class="module-header">
+                        <div class="module-icon">🌳</div>
+                        <div class="module-title">
+                            <h3>Module 8: Tree-Based Models</h3>
+                            <div class="module-subtitle">Decision trees and beyond</div>
+                        </div>
+                    </div>
+                    <ul class="topics">
+                        <li><strong>Decision Trees:</strong> How trees make decisions, splitting criteria</li>
+                        <li><strong>Tree depth and pruning:</strong> Controlling complexity</li>
+                        <li><strong>Interpretability:</strong> Visualizing decision paths</li>
+                        <li><strong>Feature importance:</strong> Which variables matter most</li>
+                        <li><strong>Classification vs Regression trees:</strong> Gini, entropy, MSE</li>
+                        <li><strong>Strengths and weaknesses:</strong> Non-linear patterns, overfitting risk</li>
+                        <li><strong>Practical tips:</strong> Hyperparameter tuning</li>
+                    </ul>
+                </div>
+                
+                <div class="module algo">
+                    <div class="module-header">
+                        <div class="module-icon">🌲</div>
+                        <div class="module-title">
+                            <h3>Module 9: Ensemble Methods</h3>
+                            <div class="module-subtitle">Combining models for power</div>
+                        </div>
+                    </div>
+                    <ul class="topics">
+                        <li><strong>Random Forests:</strong> Bagging multiple trees, why it works</li>
+                        <li><strong>Feature randomness:</strong> Creating diverse trees</li>
+                        <li><strong>Out-of-bag error:</strong> Built-in validation</li>
+                        <li><strong>Gradient Boosting:</strong> Learning from mistakes iteratively</li>
+                        <li><strong>XGBoost/LightGBM:</strong> Industry-standard implementations</li>
+                        <li><strong>Boosting vs Bagging:</strong> Sequential vs parallel learning</li>
+                        <li><strong>Hyperparameter tuning:</strong> n_estimators, learning_rate, max_depth</li>
+                    </ul>
+                </div>
+                
+                <div class="module algo">
+                    <div class="module-header">
+                        <div class="module-icon">🎲</div>
+                        <div class="module-title">
+                            <h3>Module 10: Other Important Algorithms</h3>
+                            <div class="module-subtitle">Rounding out your toolkit</div>
+                        </div>
+                    </div>
+                    <ul class="topics">
+                        <li><strong>K-Nearest Neighbors (KNN):</strong> Instance-based learning</li>
+                        <li><strong>Support Vector Machines (SVM):</strong> Maximum margin classification</li>
+                        <li><strong>Naive Bayes:</strong> Probabilistic classification</li>
+                        <li><strong>When to use each:</strong> Problem-specific algorithm selection</li>
+                        <li><strong>Computational considerations:</strong> Speed vs accuracy tradeoffs</li>
+                        <li><strong>Ensemble combinations:</strong> Stacking, voting classifiers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PART 4: MODEL EVALUATION -->
+        <div class="section">
+            <div class="section-header">
+                <h2>✅ PART 4: Model Evaluation & Selection</h2>
+                <p>Measuring success and choosing the best model</p>
+            </div>
+            
+            <div class="modules-grid">
+                <div class="module advanced">
+                    <div class="module-header">
+                        <div class="module-icon">📊</div>
+                        <div class="module-title">
+                            <h3>Module 11: Evaluation Metrics</h3>
+                            <div class="module-subtitle">How good is your model?</div>
+                        </div>
+                    </div>
+                    <ul class="topics">
+                        <li><strong>Regression metrics:</strong> RMSE, MAE, R², MAPE - interpretation</li>
+                        <li><strong>Classification metrics:</strong> Accuracy, Precision, Recall, F1-score</li>
+                        <li><strong>Confusion matrix:</strong> TP, TN, FP, FN - understanding errors</li>
+                        <li><strong>ROC curve & AUC:</strong> Tradeoff visualization, threshold selection</li>
+                        <li><strong>Precision-Recall curves:</strong> Imbalanced data considerations</li>
+                        <li><strong>Business metrics:</strong> Aligning ML metrics with goals</li>
+                        <li><strong>Choosing metrics:</strong> Problem-specific selection</li>
+                    </ul>
+                </div>
+                
+                <div class="module advanced">
+                    <div class="module-header">
+                        <div class="module-icon">🔄</div>
+                        <div class="module-title">
+                            <h3>Module 12: Validation Strategies</h3>
+                            <div class="module-subtitle">Robust model testing</div>
+                        </div>
+                    </div>
+                    <ul class="topics">
+                        <li><strong>Train-Test split:</strong> Why you need separate data</li>
+                        <li><strong>Cross-validation:</strong> K-fold, stratified, time series splits</li>
+                        <li><strong>Holdout set:</strong> Final test for production readiness</li>
+                        <li><strong>Data leakage:</strong> Common pitfalls and how to avoid them</li>
+                        <li><strong>Time series considerations:</strong> No future in training!</li>
+                        <li><strong>Imbalanced data:</strong> Stratification, SMOTE, class weights</li>
+                    </ul>
+                </div>
+                
+                <div class="module advanced">
+                    <div class="module-header">
+                        <div class="module-icon">⚖️</div>
+                        <div class="module-title">
+                            <h3>Module 13: Overfitting & Underfitting</h3>
+                            <div class="module-subtitle">The bias-variance tradeoff</div>
+                        </div>
+                    </div>
+                    <ul class="topics">
+                        <li><strong>Overfitting:</strong> Memorizing vs learning - symptoms and causes</li>
+                        <li><strong>Underfitting:</strong> Too simple models - missing patterns</li>
+                        <li><strong>Bias-variance tradeoff:</strong> The fundamental ML dilemma</li>
+                        <li><strong>Learning curves:</strong> Diagnosing model behavior</li>
+                        <li><strong>Regularization techniques:</strong> L1, L2, dropout, early stopping</li>
+                        <li><strong>Feature selection impact:</strong> More isn't always better</li>
+                        <li><strong>Model complexity:</strong> Finding the sweet spot</li>
+                    </ul>
+                </div>
+                
+                <div class="module advanced">
+                    <div class="module-header">
+                        <div class="module-icon">🎛️</div>
+                        <div class="module-title">
+                            <h3>Module 14: Hyperparameter Tuning</h3>
+                            <div class="module-subtitle">Optimizing model performance</div>
+                        </div>
+                    </div>
+                    <ul class="topics">
+                        <li><strong>What are hyperparameters?</strong> Settings vs learned parameters</li>
+                        <li><strong>Grid Search:</strong> Exhaustive but thorough</li>
+                        <li><strong>Random Search:</strong> Efficient exploration</li>
+                        <li><strong>Bayesian Optimization:</strong> Smart hyperparameter search</li>
+                        <li><strong>Common hyperparameters:</strong> For each algorithm type</li>
+                        <li><strong>Validation strategy:</strong> Nested cross-validation</li>
+                        <li><strong>Practical tips:</strong> Starting points, search ranges</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PART 5: PYTHON & TOOLS -->
+        <div class="section">
+            <div class="section-header">
+                <h2>🛠️ PART 5: Python & ML Tools Mastery</h2>
+                <p>The technical toolkit every ML practitioner needs</p>
+            </div>
+            
+            <div class="modules-grid">
+                <div class="module tools">
+                    <div class="module-header">
+                        <div class="module-icon">🐍</div>
+                        <div class="module-title">
+                            <h3>Module 15: Python Essentials</h3>
+                            <div class="module-subtitle">Core programming skills</div>
+                        </div>
+                    </div>
+                    <ul class="topics">
+                        <li><strong>Data structures:</strong> Lists, dicts, sets, tuples - when to use each</li>
+                        <li><strong>Control flow:</strong> Loops, conditionals, comprehensions</li>
+                        <li><strong>Functions:</strong> Writing clean, reusable code</li>
+                        <li><strong>Error handling:</strong> Try-except blocks, debugging</li>
+                        <li><strong>File I/O:</strong> Reading/writing CSV, JSON, Parquet</li>
+                        <li><strong>Lambda functions:</strong> Quick transformations</li>
+                        <li><strong>Object-oriented basics:</strong> Classes for ML pipelines</li>
+                    </ul>
+                </div>
+                
+                <div class="module tools">
+                    <div class="module-header">
+                        <div class="module-icon">🐼</div>
+                        <div class="module-title">
+                            <h3>Module 16: NumPy & Pandas</h3>
+                            <div class="module-subtitle">Data manipulation powerhouses</div>
+                        </div>
+                    </div>
+                    <ul class="topics">
+                        <li><strong>NumPy arrays:</strong> Vectorized operations, broadcasting</li>
+                        <li><strong>Pandas DataFrames:</strong> The backbone of data analysis</li>
+                        <li><strong>Indexing & selection:</strong> loc, iloc, boolean indexing</li>
+                        <li><strong>GroupBy operations:</strong> Split-apply-combine</li>
+                        <li><strong>Merging & joining:</strong> Combining datasets</li>
+                        <li><strong>Time series:</strong> DatetimeIndex, resampling</li>
+                        <li><strong>Performance tips:</strong> Avoiding loops, efficient operations</li>
+                    </ul>
+                </div>
+                
+                <div class="module tools">
+                    <div class="module-header">
+                        <div class="module-icon">🔬</div>
+                        <div class="module-title">
+                            <h3>Module 17: Scikit-learn</h3>
+                            <div class="module-subtitle">Your ML workhorse</div>
+                        </div>
+                    </div>
+                    <ul class="topics">
+                        <li><strong>API design:</strong> fit, predict, transform - the scikit-learn way</li>
+                        <li><strong>Preprocessing:</strong> Scalers, encoders, imputers</li>
+                        <li><strong>Pipelines:</strong> Chaining transformations and models</li>
+                        <li><strong>Model selection:</strong> GridSearchCV, cross_val_score</li>
+                        <li><strong>Metrics module:</strong> All evaluation functions</li>
+                        <li><strong>Best practices:</strong> Reproducibility, random states</li>
+                        <li><strong>Custom transformers:</strong> Building your own</li>
+                    </ul>
+                </div>
+                
+                <div class="module tools">
+                    <div class="module-header">
+                        <div class="module-icon">📓</div>
+                        <div class="module-title">
+                            <h3>Module 18: Jupyter & Git</h3>
+                            <div class="module-subtitle">Professional workflow</div>
+                        </div>
+                    </div>
+                    <ul class="topics">
+                        <li><strong>Jupyter notebooks:</strong> Interactive development, markdown</li>
+                        <li><strong>Notebook organization:</strong> Structure, narrative flow</li>
+                        <li><strong>Git basics:</strong> init, add, commit, push, pull</li>
+                        <li><strong>GitHub workflow:</strong> Repos, branches, pull requests</li>
+                        <li><strong>.gitignore:</strong> What not to commit</li>
+                        <li><strong>README files:</strong> Documenting your projects</li>
+                        <li><strong>Version control:</strong> Best practices for ML projects</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PART 6: ADVANCED TOPICS -->
+        <div class="section">
+            <div class="section-header">
+                <h2>🚀 PART 6: Advanced Topics & Real-World Skills</h2>
+                <p>Going beyond basics - standing out in interviews</p>
+            </div>
+            
+            <div class="modules-grid">
+                <div class="module deploy">
+                    <div class="module-header">
+                        <div class="module-icon">🎯</div>
+                        <div class="module-title">
+                            <h3>Module 19: Model Interpretation</h3>
+                            <div class="module-subtitle">Explaining predictions</div>
+                        </div>
+                    </div>
+                    <ul class="topics">
+                        <li><strong>Feature importance:</strong> Which variables drive predictions</li>
+                        <li><strong>Partial dependence plots:</strong> Feature-prediction relationships</li>
+                        <li><strong>SHAP values:</strong> Individual prediction explanations</li>
+                        <li><strong>LIME:</strong> Local interpretable explanations</li>
+                        <li><strong>Interpretability vs accuracy:</strong> Making tradeoffs</li>
+                        <li><strong>Communicating to stakeholders:</strong> Non-technical explanations</li>
+                    </ul>
+                </div>
+                
+                <div class="module deploy">
+                    <div class="module-header">
+                        <div class="module-icon">⚡</div>
+                        <div class="module-title">
+                            <h3>Module 20: Model Deployment Basics</h3>
+                            <div class="module-subtitle">Taking models to production</div>
+                        </div>
+                    </div>
+                    <ul class="topics">
+                        <li><strong>Saving models:</strong> pickle, joblib - serialization</li>
+                        <li><strong>Model APIs:</strong> Flask/FastAPI basics for serving</li>
+                        <li><strong>Deployment considerations:</strong> Latency, throughput, scalability</li>
+                        <li><strong>Monitoring:</strong> Tracking performance in production</li>
+                        <li><strong>Model drift:</strong> When models degrade over time</li>
+                        <li><strong>A/B testing:</strong> Comparing model versions</li>
+                    </ul>
+                </div>
+                
+                <div class="module math">
+                    <div class="module-header">
+                        <div class="module-icon">📐</div>
+                        <div class="module-title">
+                            <h3>Module 21: ML Math Foundations</h3>
+                            <div class="module-subtitle">Understanding the theory</div>
+                        </div>
+                    </div>
+                    <ul class="topics">
+                        <li><strong>Linear algebra basics:</strong> Vectors, matrices, operations</li>
+                        <li><strong>Calculus concepts:</strong> Derivatives, gradients, optimization</li>
+                        <li><strong>Probability:</strong> Distributions, Bayes' theorem</li>
+                        <li><strong>Statistics:</strong> Hypothesis testing, confidence intervals</li>
+                        <li><strong>Loss functions:</strong> MSE, cross-entropy - what models optimize</li>
+                        <li><strong>Gradient descent:</strong> How models learn iteratively</li>
+                    </ul>
+                </div>
+                
+                <div class="module advanced">
+                    <div class="module-header">
+                        <div class="module-icon">🧪</div>
+                        <div class="module-title">
+                            <h3>Module 22: Experimentation</h3>
+                            <div class="module-subtitle">Scientific approach to ML</div>
+                        </div>
+                    </div>
+                    <ul class="topics">
+                        <li><strong>Experiment tracking:</strong> MLflow, Weights & Biases basics</li>
+                        <li><strong>Ablation studies:</strong> Isolating feature impact</li>
+                        <li><strong>Baseline comparisons:</strong> Establishing benchmarks</li>
+                        <li><strong>Statistical significance:</strong> Are improvements real?</li>
+                        <li><strong>Documentation:</strong> Recording decisions and results</li>
+                        <li><strong>Reproducibility:</strong> Making experiments repeatable</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- INTERVIEW PREP -->
+        <div class="interview-prep">
+            <h2>💼 Interview Preparation - What Recruiters Test</h2>
+            <div class="interview-topics">
+                <div class="interview-card">
+                    <h3>🎤 Conceptual Questions</h3>
+                    <ul>
+                        <li>Explain bias-variance tradeoff</li>
+                        <li>What is overfitting? How to prevent it?</li>
+                        <li>Precision vs Recall - when to prioritize each?</li>
+                        <li>How does Random Forest work?</li>
+                        <li>Explain cross-validation</li>
+                        <li>What's the difference between bagging and boosting?</li>
+                        <li>How to handle imbalanced datasets?</li>
+                        <li>Feature selection techniques</li>
+                    </ul>
+                </div>
+                
+                <div class="interview-card">
+                    <h3>💻 Coding Challenges</h3>
+                    <ul>
+                        <li>Implement train-test split from scratch</li>
+                        <li>Write a function to calculate RMSE</li>
+                        <li>Data cleaning: handle missing values</li>
+                        <li>Feature engineering: create time-based features</li>
+                        <li>Build a simple linear regression</li>
+                        <li>Evaluate a classification model</li>
+                        <li>Debug provided ML code</li>
+                        <li>Pandas data manipulation tasks</li>
+                    </ul>
+                </div>
+                
+                <div class="interview-card">
+                    <h3>📊 Case Studies</h3>
+                    <ul>
+                        <li>Walk through your taxi project</li>
+                        <li>Design an ML solution for X problem</li>
+                        <li>How would you approach fraud detection?</li>
+                        <li>Recommend a model for given scenario</li>
+                        <li>Explain your feature engineering choices</li>
+                        <li>Discuss model performance tradeoffs</li>
+                        <li>Handle questions about failures/challenges</li>
+                    </ul>
+                </div>
+                
+                <div class="interview-card">
+                    <h3>🔧 Technical Deep Dives</h3>
+                    <ul>
+                        <li>Explain a model's math (e.g., logistic regression)</li>
+                        <li>How does gradient boosting learn?</li>
+                        <li>What happens during model.fit()?</li>
+                        <li>Discuss regularization techniques</li>
+                        <li>Optimization algorithms: SGD, Adam</li>
+                        <li>Loss functions for different problems</li>
+                        <li>Handling categorical variables - approaches</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PROJECT PORTFOLIO -->
+        <div class="project-showcase">
+            <h2>🏆 Portfolio Projects - What to Build</h2>
+            <div class="project-items">
+                <div class="project-card">
+                    <h3>1. NYC Taxi Project (Primary)</h3>
+                    <p class="project-desc">Your main project - both regression and classification. Shows end-to-end ML workflow with real data.</p>
+                    <div class="skills">
+                        <span class="skill-tag">Regression</span>
+                        <span class="skill-tag">Classification</span>
+                        <span class="skill-tag">EDA</span>
+                        <span class="skill-tag">Feature Engineering</span>
+                        <span class="skill-tag">Ensemble Models</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>2. Quick Kaggle Competition</h3>
+                    <p class="project-desc">Participate in a beginner-friendly competition (Titanic, House Prices). Shows you can compete with others.</p>
+                    <div class="skills">
+                        <span class="skill-tag">Competition</span>
+                        <span class="skill-tag">Model Tuning</span>
+                        <span class="skill-tag">Leaderboard</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>3. Personal Interest Project</h3>
+                    <p class="project-desc">Something unique to you - sports analytics, finance, health. Shows passion and initiative.</p>
+                    <div class="skills">
+                        <span class="skill-tag">Domain Knowledge</span>
+                        <span class="skill-tag">Creativity</span>
+                        <span class="skill-tag">Self-Directed</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TIMELINE -->
+        <div class="timeline-section">
+            <h2>📅 6-Week Learning Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="week">Week 1</div>
+                    <h3>Foundations + Data</h3>
+                    <p>ML basics, EDA, understanding your taxi data</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="week">Week 2</div>
+                    <h3>Data Preparation</h3>
+                    <p>Cleaning, feature engineering, visualization</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="week">Week 3</div>
+                    <h3>Baseline Models</h3>
+                    <p>Linear models, evaluation, first predictions</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="week">Week 4</div>
+                    <h3>Advanced Models</h3>
+                    <p>Trees, forests, boosting - power models</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="week">Week 5</div>
+                    <h3>Optimization</h3>
+                    <p>Tuning, interpretation, model selection</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="week">Week 6</div>
+                    <h3>Polish & Prep</h3>
+                    <p>Documentation, presentation, interview prep</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- FOOTER -->
+        <div class="footer">
+            <h2>🎓 By the End of This Syllabus, You Will:</h2>
+            
+            <div class="checklist">
+                <h3>Technical Skills</h3>
+                <ul>
+                    <li>Master Python, Pandas, NumPy, Scikit-learn</li>
+                    <li>Build regression and classification models</li>
+                    <li>Handle real-world messy data confidently</li>
+                    <li>Evaluate and compare models scientifically</li>
+                    <li>Create professional visualizations</li>
+                    <li>Use Git/GitHub like a pro</li>
+                </ul>
+            </div>
+            
+            <div class="checklist">
+                <h3>Interview Readiness</h3>
+                <ul>
+                    <li>Answer conceptual ML questions clearly</li>
+                    <li>Code ML solutions under time pressure</li>
+                    <li>Discuss your projects articulately</li>
+                    <li>Explain complex concepts simply</li>
+                    <li>Debug and optimize existing code</li>
+                    <li>Handle technical deep dives</li>
+                </ul>
+            </div>
+            
+            <div class="checklist">
+                <h3>Portfolio</h3>
+                <ul>
+                    <li>1-2 complete, polished ML projects on GitHub</li>
+                    <li>Professional documentation and README files</li>
+                    <li>Clean, commented, reproducible code</li>
+                    <li>Impressive visualizations and insights</li>
+                    <li>Resume-worthy accomplishments</li>
+                </ul>
+            </div>
+            
+            <p style="margin-top: 30px; font-size: 1.3em; font-weight: bold;">
+                🚀 You'll be ready to apply for ML internships with confidence!
+            </p>
+        </div>
+    </div>
+</body>
+</html>

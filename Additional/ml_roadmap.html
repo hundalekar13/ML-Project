@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Roadmap - NYC Taxi Project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: white;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            color: white;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .intro {
+            background: linear-gradient(135deg, #f6f8fb 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .intro h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .phase {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-left: 6px solid;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .phase:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .phase1 { border-left-color: #ff6b6b; }
+        .phase2 { border-left-color: #4ecdc4; }
+        .phase3 { border-left-color: #45b7d1; }
+        .phase4 { border-left-color: #f7b731; }
+        .phase5 { border-left-color: #5f27cd; }
+        .phase6 { border-left-color: #00d2d3; }
+        
+        .phase-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .phase-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .phase1 .phase-number { background: #ff6b6b; }
+        .phase2 .phase-number { background: #4ecdc4; }
+        .phase3 .phase-number { background: #45b7d1; }
+        .phase4 .phase-number { background: #f7b731; }
+        .phase5 .phase-number { background: #5f27cd; }
+        .phase6 .phase-number { background: #00d2d3; }
+        
+        .phase-title {
+            flex-grow: 1;
+        }
+        
+        .phase-title h2 {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
+        
+        .phase-duration {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .concepts {
+            margin: 20px 0;
+        }
+        
+        .concept-item {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 3px solid #dee2e6;
+        }
+        
+        .concept-item h4 {
+            color: #495057;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .concept-item p {
+            color: #6c757d;
+            font-size: 0.95em;
+        }
+        
+        .hands-on {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .hands-on h3 {
+            color: #2d3436;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hands-on h3:before {
+            content: "💻";
+            margin-right: 10px;
+            font-size: 1.3em;
+        }
+        
+        .hands-on ul {
+            margin-left: 20px;
+            color: #2d3436;
+        }
+        
+        .hands-on li {
+            margin: 5px 0;
+        }
+        
+        .key-outcome {
+            background: linear-gradient(135deg, #a8e6cf 0%, #56cc9d 100%);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            color: #1e3a2b;
+            font-weight: 500;
+        }
+        
+        .key-outcome:before {
+            content: "🎯 ";
+            font-size: 1.2em;
+        }
+        
+        .timeline {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .timeline h2 {
+            color: #2e7d32;
+            margin-bottom: 20px;
+        }
+        
+        .timeline p {
+            font-size: 1.1em;
+            color: #1b5e20;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            color: white;
+        }
+        
+        .footer h3 {
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .phase-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .phase-number {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚖 Your ML Learning Roadmap</h1>
+            <p>NYC Taxi Trip Duration & Congestion Pricing Project</p>
+        </header>
+        
+        <div class="intro">
+            <h2>🎓 What You'll Master</h2>
+            <p>This roadmap takes you from <strong>complete beginner</strong> to building a <strong>professional-grade ML project</strong>. Each phase builds on the previous one, using simple English and real NYC taxi data. By the end, you'll have both deep understanding AND a portfolio-ready GitHub project!</p>
+        </div>
+        
+        <div class="phase phase1">
+            <div class="phase-header">
+                <div class="phase-number">1</div>
+                <div class="phase-title">
+                    <h2>ML Foundations & Big Picture</h2>
+                    <div class="phase-duration">📅 Week 1 (3-4 days)</div>
+                </div>
+            </div>
+            
+            <div class="concepts">
+                <div class="concept-item">
+                    <h4>What is Machine Learning?</h4>
+                    <p>Simple explanation: Teaching computers to learn from examples instead of programming every rule. Like how you learned to recognize cats without memorizing every possible cat!</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h4>Types of ML Problems</h4>
+                    <p><strong>Regression</strong> (predicting numbers like trip duration) vs <strong>Classification</strong> (predicting categories like yes/no for congestion fee)</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h4>How Computers "Learn"</h4>
+                    <p>The training process explained with everyday examples. Understanding patterns, making predictions, and improving from mistakes.</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h4>Your Two ML Tasks</h4>
+                    <p>Understanding what you're building: Trip duration predictor (regression) + Congestion fee classifier (classification)</p>
+                </div>
+            </div>
+            
+            <div class="hands-on">
+                <h3>Hands-On Practice</h3>
+                <ul>
+                    <li>Set up your Python environment (step-by-step)</li>
+                    <li>Download the NYC taxi dataset</li>
+                    <li>Load your first data file</li>
+                    <li>See what the data looks like</li>
+                </ul>
+            </div>
+            
+            <div class="key-outcome">
+                Key Outcome: You understand WHAT ML is, WHY it's useful, and WHAT you're building
+            </div>
+        </div>
+        
+        <div class="phase phase2">
+            <div class="phase-header">
+                <div class="phase-number">2</div>
+                <div class="phase-title">
+                    <h2>Exploring & Understanding Your Data</h2>
+                    <div class="phase-duration">📅 Week 1-2 (4-5 days)</div>
+                </div>
+            </div>
+            
+            <div class="concepts">
+                <div class="concept-item">
+                    <h4>Exploratory Data Analysis (EDA)</h4>
+                    <p>Detective work! Finding patterns, spotting problems, and understanding what your taxi data is telling you.</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h4>Data Visualization Basics</h4>
+                    <p>Creating graphs to see patterns: histograms, scatter plots, time series. Making data speak visually!</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h4>Statistical Summaries</h4>
+                    <p>Mean, median, distributions explained simply. What do these numbers actually mean for taxi trips?</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h4>Identifying Data Issues</h4>
+                    <p>Spotting weird values: negative trip durations? 100-passenger taxis? Learning to question your data.</p>
+                </div>
+            </div>
+            
+            <div class="hands-on">
+                <h3>Hands-On Practice</h3>
+                <ul>
+                    <li>Calculate trip durations from timestamps</li>
+                    <li>Create visualizations of trip patterns</li>
+                    <li>Find and understand congestion pricing data</li>
+                    <li>Generate your first data report</li>
+                </ul>
+            </div>
+            
+            <div class="key-outcome">
+                Key Outcome: You deeply understand your taxi data and can spot interesting patterns
+            </div>
+        </div>
+        
+        <div class="phase phase3">
+            <div class="phase-header">
+                <div class="phase-number">3</div>
+                <div class="phase-title">
+                    <h2>Data Cleaning & Preparation</h2>
+                    <div class="phase-duration">📅 Week 2-3 (5-6 days)</div>
+                </div>
+            </div>
+            
+            <div class="concepts">
+                <div class="concept-item">
+                    <h4>Why "Garbage In = Garbage Out"</h4>
+                    <p>Understanding why clean data is crucial. Your model is only as good as your data!</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h4>Handling Missing Values</h4>
+                    <p>What to do when data is incomplete: delete, fill in, or something smarter?</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h4>Dealing with Outliers</h4>
+                    <p>Those weird values you found: Keep them? Remove them? Understanding the impact.</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h4>Feature Engineering</h4>
+                    <p>Creating useful inputs from raw data: extracting hour from timestamp, calculating speed, identifying rush hour.</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h4>Encoding Categorical Variables</h4>
+                    <p>Converting things like "payment type" into numbers computers can understand.</p>
+                </div>
+            </div>
+            
+            <div class="hands-on">
+                <h3>Hands-On Practice</h3>
+                <ul>
+                    <li>Remove impossible trips (negative durations, etc.)</li>
+                    <li>Create time-based features (hour, day, rush hour flag)</li>
+                    <li>Engineer location-based features</li>
+                    <li>Prepare final clean dataset for modeling</li>
+                </ul>
+            </div>
+            
+            <div class="key-outcome">
+                Key Outcome: Clean, analysis-ready dataset with smart features
+            </div>
+        </div>
+        
+        <div class="phase phase4">
+            <div class="phase-header">
+                <div class="phase-number">4</div>
+                <div class="phase-title">
+                    <h2>Your First ML Models (Baselines)</h2>
+                    <div class="phase-duration">📅 Week 3-4 (5-6 days)</div>
+                </div>
+            </div>
+            
+            <div class="concepts">
+                <div class="concept-item">
+                    <h4>Train-Test Split</h4>
+                    <p>Why you need separate data for testing. Like studying with practice tests before the real exam!</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h4>Linear Regression (Trip Duration)</h4>
+                    <p>The simplest ML model: drawing a line through data points. Understanding the math without the scary equations!</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h4>Logistic Regression (Congestion Pricing)</h4>
+                    <p>Predicting yes/no answers using probabilities. How computers make binary decisions.</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h4>Model Training Process</h4>
+                    <p>What actually happens when you "fit" a model. The learning loop explained simply.</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h4>Making Predictions</h4>
+                    <p>Using your trained model to predict new taxi trips. Seeing your ML in action!</p>
+                </div>
+            </div>
+            
+            <div class="hands-on">
+                <h3>Hands-On Practice</h3>
+                <ul>
+                    <li>Split data into training and testing sets</li>
+                    <li>Build your first regression model</li>
+                    <li>Build your first classification model</li>
+                    <li>Make predictions on new data</li>
+                    <li>Understand model coefficients</li>
+                </ul>
+            </div>
+            
+            <div class="key-outcome">
+                Key Outcome: Working baseline models that make actual predictions!
+            </div>
+        </div>
+        
+        <div class="phase phase5">
+            <div class="phase-header">
+                <div class="phase-number">5</div>
+                <div class="phase-title">
+                    <h2>Evaluating Model Performance</h2>
+                    <div class="phase-duration">📅 Week 4 (3-4 days)</div>
+                </div>
+            </div>
+            
+            <div class="concepts">
+                <div class="concept-item">
+                    <h4>How Good is "Good Enough"?</h4>
+                    <p>Understanding what makes a model successful for your specific problem.</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h4>Regression Metrics (RMSE, MAE, R²)</h4>
+                    <p>Measuring prediction errors in plain English. What do these numbers really mean?</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h4>Classification Metrics (Accuracy, Precision, Recall)</h4>
+                    <p>Understanding different ways to measure yes/no predictions. When is accuracy misleading?</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h4>Confusion Matrix & ROC Curves</h4>
+                    <p>Visual tools to understand where your model succeeds and fails.</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h4>Overfitting vs Underfitting</h4>
+                    <p>The Goldilocks problem: models that memorize vs models that are too simple.</p>
+                </div>
+            </div>
+            
+            <div class="hands-on">
+                <h3>Hands-On Practice</h3>
+                <ul>
+                    <li>Calculate metrics for your regression model</li>
+                    <li>Calculate metrics for your classification model</li>
+                    <li>Create confusion matrices</li>
+                    <li>Visualize prediction errors</li>
+                    <li>Identify where models struggle</li>
+                </ul>
+            </div>
+            
+            <div class="key-outcome">
+                Key Outcome: You can objectively measure and explain model performance
+            </div>
+        </div>
+        
+        <div class="phase phase6">
+            <div class="phase-header">
+                <div class="phase-number">6</div>
+                <div class="phase-title">
+                    <h2>Advanced ML Models</h2>
+                    <div class="phase-duration">📅 Week 5-6 (7-10 days)</div>
+                </div>
+            </div>
+            
+            <div class="concepts">
+                <div class="concept-item">
+                    <h4>Decision Trees</h4>
+                    <p>ML that thinks like flowcharts! Making decisions by asking yes/no questions.</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h4>Random Forests</h4>
+                    <p>Why many trees are better than one. Understanding ensemble learning with a forest analogy.</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h4>Gradient Boosting</h4>
+                    <p>Learning from mistakes iteratively. Building powerful models step by step.</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h4>Feature Importance</h4>
+                    <p>Which variables matter most? Understanding what drives taxi trip predictions.</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h4>Hyperparameter Tuning</h4>
+                    <p>Fine-tuning your models like adjusting recipe ingredients for better results.</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h4>Model Comparison</h4>
+                    <p>Choosing the best model for the job. Balancing accuracy, speed, and interpretability.</p>
+                </div>
+            </div>
+            
+            <div class="hands-on">
+                <h3>Hands-On Practice</h3>
+                <ul>
+                    <li>Build decision tree models</li>
+                    <li>Build random forest models</li>
+                    <li>Build gradient boosting models</li>
+                    <li>Compare all models systematically</li>
+                    <li>Tune hyperparameters for best performance</li>
+                    <li>Analyze feature importance</li>
+                    <li>Select final models</li>
+                </ul>
+            </div>
+            
+            <div class="key-outcome">
+                Key Outcome: Production-ready models with superior performance
+            </div>
+        </div>
+        
+        <div class="phase phase1">
+            <div class="phase-header">
+                <div class="phase-number">7</div>
+                <div class="phase-title">
+                    <h2>Results, Insights & Documentation</h2>
+                    <div class="phase-duration">📅 Week 6 (4-5 days)</div>
+                </div>
+            </div>
+            
+            <div class="concepts">
+                <div class="concept-item">
+                    <h4>Interpreting Results</h4>
+                    <p>Translating model outputs into business insights. What do your predictions mean for NYC transportation?</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h4>Creating Visualizations</h4>
+                    <p>Professional charts and graphs that tell your story clearly.</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h4>Writing Technical Documentation</h4>
+                    <p>Explaining your work so others can understand and reproduce it.</p>
+                </div>
+                
+                <div class="concept-item">
+                    <h4>GitHub Best Practices</h4>
+                    <p>Organizing code, writing README files, creating a portfolio-ready repository.</p>
+                </div>
+            </div>
+            
+            <div class="hands-on">
+                <h3>Hands-On Practice</h3>
+                <ul>
+                    <li>Create final results visualizations</li>
+                    <li>Write comprehensive README</li>
+                    <li>Document all code with comments</li>
+                    <li>Create Jupyter notebooks with narrative</li>
+                    <li>Prepare presentation slides</li>
+                    <li>Polish GitHub repository</li>
+                </ul>
+            </div>
+            
+            <div class="key-outcome">
+                Key Outcome: Complete, professional ML project ready for your portfolio
+            </div>
+        </div>
+        
+        <div class="timeline">
+            <h2>⏱️ Total Timeline: 6 Weeks</h2>
+            <p><strong>Flexible pacing:</strong> Move faster if concepts click quickly, or spend extra time where needed. Quality understanding beats rushing!</p>
+        </div>
+        
+        <div class="footer">
+            <h3>🚀 What You'll Achieve</h3>
+            <p>✅ Deep understanding of ML fundamentals</p>
+            <p>✅ Hands-on experience with real-world data</p>
+            <p>✅ Both regression AND classification skills</p>
+            <p>✅ Portfolio project for GitHub & resume</p>
+            <p>✅ Confidence to tackle new ML problems</p>
+            <br>
+            <p><strong>Let's start this journey together! 🎓</strong></p>
+        </div>
+    </div>
+</body>
+</html>
